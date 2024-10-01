@@ -30,7 +30,7 @@ class SectionController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'class_id' => 'required|exists:classes,id',
-            'status' => 'required|in:Assigned,Unassigned',
+            // 'status' => 'required|in:Assigned,Unassigned',
         ]);
 
         Section::create($request->all());

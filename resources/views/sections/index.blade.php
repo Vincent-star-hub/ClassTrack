@@ -91,7 +91,7 @@
                         <label for="name">Section Name:</label>
                         <input type="text" name="name" id="name" class="form-control" required>
                     </div>
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="section_id">Section:</label>
                         <select name="section_id" id="section_id" class="form-control" required>
                             <option value="" disabled selected>Select a Section</option>
@@ -99,7 +99,7 @@
                             <option value="{{ $section->id }}">{{ $section->name }}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-primary">Create Section</button>
                 </form>
             </div>

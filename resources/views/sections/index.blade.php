@@ -91,6 +91,7 @@
                         <label for="name">Section Name:</label>
                         <input type="text" name="name" id="name" class="form-control" required>
                     </div>
+                    <!-- with dropdown -->
                     <!-- <div class="form-group mb-3">
                         <label for="section_id">Section:</label>
                         <select name="section_id" id="section_id" class="form-control" required>

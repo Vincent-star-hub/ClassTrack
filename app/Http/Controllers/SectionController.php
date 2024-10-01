@@ -30,6 +30,7 @@ class SectionController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'class_id' => 'required|exists:classes,id',
+            // Uncomment the line below if you want to validate the status field
             // 'status' => 'required|in:Assigned,Unassigned',
         ]);
 

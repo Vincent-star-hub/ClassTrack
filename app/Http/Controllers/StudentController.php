@@ -70,4 +70,11 @@ class StudentController extends Controller
 
         return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
+
+    public function getSectionsByClassId($classId)
+    {
+        $sections = Section::where('class_id', $classId)->get();
+
+        return response()->json($sections);
+    }
 }

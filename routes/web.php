@@ -41,6 +41,9 @@ Route::middleware('auth')->group(function () {
         // Routes for managing sections
         Route::resource('sections', SectionController::class);
 
+        // fetch the sections based on the selected class
+        Route::get('/api/sections/{classId}', [StudentController::class, 'getSectionsByClassId']);
+
         // Teachers Routes
         Route::prefix('teachers')->name('admin.teachers.')->group(function () {
             Route::get('/', [UserController::class, 'manageTeachers'])->name('index');

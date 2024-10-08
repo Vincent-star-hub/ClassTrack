@@ -26,7 +26,7 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'class_id' => 'required|exists:classes,id',
-            'section_id' => 'required|exists:sections,id',
+            // 'section_id' => 'required|exists:sections,id',
         ]);
 
         User::create([
@@ -35,7 +35,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'role' => 'teacher',
             'class_id' => $request->class_id,
-            'section_id' => $request->section_id,
+            // 'section_id' => $request->section_id,
         ]);
 
         return redirect()->route('admin.teachers.index')->with('success', 'Teacher created successfully.');

@@ -32,7 +32,8 @@
 </div>
 
 {{-- Student Creation Modal --}}
-<div class="modal fade" id="createStudentModal" tabindex="-1" aria-labelledby="createStudentModalLabel" aria-hidden="true">
+<div class="modal fade" id="createStudentModal" tabindex="-1" aria-labelledby="createStudentModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,6 +62,7 @@
                     <div class="form-group mb-3">
                         <label for="class">Class</label>
                         <select name="class_id" id="class" class="form-control" required>
+                            <option value="">Select Class</option>
                             @foreach($classes as $class)
                             <option value="{{ $class->id }}">{{ $class->name }}</option>
                             @endforeach
@@ -69,11 +71,11 @@
                     <div class="form-group mb-3">
                         <label for="section">Section</label>
                         <select name="section_id" id="section" class="form-control" required>
-                            @foreach($sections as $section)
-                            <option value="{{ $section->id }}">{{ $section->name }}</option>
-                            @endforeach
+                            <option value="">Select Section</option>
+                            <!-- Sections will be populated here via AJAX -->
                         </select>
                     </div>
+
 
                     <button type="submit" class="btn btn-primary">Create Student</button>
                 </form>
@@ -111,7 +113,8 @@
                     <td>{{ $student->section->name }}</td>
                     <td>
                         <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('students.destroy', $student->id) }}" method="POST"
+                            style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -130,6 +133,31 @@
 <script>
     $(document).ready(function() {
         $('#studentsTable').DataTable();
+
+        // AJAX call to fetch sections based on selected class
+        $('#class').change(function() {
+            var classId = $(this).val();
+
+            // Clear the section dropdown
+            $('#section').empty();
+            $('#section').append('<option value="">Select Section</option>');
+
+            if (classId) {
+                $.ajax({
+                    url: '/sections/' + classId, // Define the endpoint here
+                    type: 'GET',
+                    success: function(data) {
+                        // Populate the section dropdown with the returned data
+                        $.each(data, function(index, section) {
+                            $('#section').append('<option value="' + section.id + '">' + section.name + '</option>');
+                        });
+                    },
+                    error: function() {
+                        alert('Error fetching sections. Please try again.');
+                    }
+                });
+            }
+        });
     });
 </script>
 @endpush

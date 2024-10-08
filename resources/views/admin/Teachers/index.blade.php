@@ -31,7 +31,8 @@
 </div>
 
 {{-- Teacher Creation Modal --}}
-<div class="modal fade" id="createTeacherModal" tabindex="-1" aria-labelledby="createTeacherModalLabel" aria-hidden="true">
+<div class="modal fade" id="createTeacherModal" tabindex="-1" aria-labelledby="createTeacherModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -55,7 +56,8 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="password_confirmation">Confirm Password:</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" required>
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                            class="form-control" required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="class_id">Assign to Class:</label>
@@ -66,15 +68,16 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group mb-3">
+                    {{-- <div class="form-group mb-3">
                         <label for="section_id">Assign to Section:</label>
                         <select name="section_id" id="section_id" class="form-control" required>
                             <option value="">Select a Section</option>
                             @foreach ($sections as $section)
-                            <option value="{{ $section->id }}">{{ $section->name }} {{ $section->status == 'Unassigned' ? '(unsigned)' : '' }}</option>
+                            <option value="{{ $section->id }}">{{ $section->name }} {{ $section->status == 'Unassigned'
+                                ? '(unsigned)' : '' }}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
 
                     <input type="hidden" name="role" value="teacher">
 
@@ -118,8 +121,10 @@
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('admin.teachers.edit', $teacher->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('admin.teachers.destroy', $teacher->id) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('admin.teachers.edit', $teacher->id) }}"
+                            class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('admin.teachers.destroy', $teacher->id) }}" method="POST"
+                            style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>

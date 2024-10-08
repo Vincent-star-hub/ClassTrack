@@ -10,19 +10,19 @@
 }
 
 .sidebar-dark-primary {
-    background-color: #212A3E !important;
+    background-color: #212a3e !important;
     /* Dark color for sidebar */
 }
 
 /* Change the background color of the brand */
 .brand-link {
-    background-color: #212A3E !important;
+    background-color: #212a3e !important;
     /* Replace with your desired color */
 }
 
 /* Change the background color of the top bar (navbar) */
 .navbar {
-    background-color: #F3F8FF !important;
+    background-color: #f3f8ff !important;
     /* Replace with your desired color */
 }
 
@@ -32,25 +32,40 @@
     /* Adjust text color as needed */
 }
 
-
 /* Custom Small Box Colors */
 .bg-danger-custom {
-    background: linear-gradient(135deg, rgba(220, 53, 69, 0.8), rgba(255, 87, 34, 0.8));
+    background: linear-gradient(
+        135deg,
+        rgba(220, 53, 69, 0.8),
+        rgba(255, 87, 34, 0.8)
+    );
     color: #fff;
 }
 
 .bg-success-custom {
-    background: linear-gradient(135deg, rgba(40, 167, 69, 0.8), rgba(0, 123, 255, 0.8));
+    background: linear-gradient(
+        135deg,
+        rgba(40, 167, 69, 0.8),
+        rgba(0, 123, 255, 0.8)
+    );
     color: #fff;
 }
 
 .bg-info-custom {
-    background: linear-gradient(135deg, rgba(23, 162, 184, 0.8), rgba(0, 123, 255, 0.8));
+    background: linear-gradient(
+        135deg,
+        rgba(23, 162, 184, 0.8),
+        rgba(0, 123, 255, 0.8)
+    );
     color: #fff;
 }
 
 .bg-warning-custom {
-    background: linear-gradient(135deg, rgba(255, 193, 7, 0.8), rgba(255, 159, 0, 0.8));
+    background: linear-gradient(
+        135deg,
+        rgba(255, 193, 7, 0.8),
+        rgba(255, 159, 0, 0.8)
+    );
     color: #fff;
 }
 

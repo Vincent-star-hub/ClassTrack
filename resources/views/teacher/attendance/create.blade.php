@@ -39,12 +39,14 @@
                             <tr>
                                 <td>{{ $student->first_name }} {{ $student->last_name }}</td>
                                 <td>
-                                    <select name="attendances[{{ $loop->index }}][status]" class="form-control" required>
+                                    <select name="attendances[{{ $loop->index }}][status]" class="form-control"
+                                        required>
                                         <option value="" disabled selected>Select Status</option>
                                         <option value="Present">Present</option>
                                         <option value="Absent">Absent</option>
                                     </select>
-                                    <input type="hidden" name="attendances[{{ $loop->index }}][student_id]" value="{{ $student->id }}">
+                                    <input type="hidden" name="attendances[{{ $loop->index }}][student_id]"
+                                        value="{{ $student->id }}">
                                 </td>
                             </tr>
                             @endforeach

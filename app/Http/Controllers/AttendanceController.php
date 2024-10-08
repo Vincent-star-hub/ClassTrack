@@ -28,19 +28,15 @@ class AttendanceController extends Controller
             'attendances.*.status' => 'required|in:Present,Absent',
         ]);
 
-        $attendances = [];
-
         foreach ($request->attendances as $attendance) {
-            $attendances[] = [
+            Attendance::create([
                 'student_id' => $attendance['student_id'],
                 'class_id' => $request->class_id,
                 'section_id' => $request->section_id,
                 'date' => $request->date,
                 'status' => $attendance['status'],
-            ];
+            ]);
         }
-
-        Attendance::insert($attendances);
 
         return redirect()->route('attendance.create')->with('success', 'Attendance recorded successfully.');
     }
